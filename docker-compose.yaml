@@ -25,6 +25,8 @@ services:
   #     ELASTICSEARCH_HOSTS: '["http://elasticsearch:9200"]'
   #   networks:
   #     - elk_elastic
+  #   depends_on:
+  #     - elasticsearch
 volumes:
   elasticsearch_data:
 
