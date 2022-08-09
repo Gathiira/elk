@@ -18,3 +18,5 @@ ELASTICSEARCH_DSL = {
     "default": {"hosts": f"{ELASTIC_USERNAME}:{ELASTIC_PASSWORD}@localhost:9200"},
 }
 ```
+
+If you want to configure KIBANA too, uncomment the configs in the docker compose
