@@ -4,7 +4,7 @@ To setup elastic search using docker compose and configure custom password
 
 ## CMDS
 
-- `echo -e "ELASTIC_PASSWORD=mypassword123 \nKIBANA_PASSWORD=mypassword123" > .env`
+- `echo -e "ELASTIC_PASSWORD=mypassword123\nKIBANA_PASSWORD=mypassword123" > .env`
 
 - `docker-compose up -d`
 
