@@ -1,0 +1,33 @@
+version: '3.8'
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.4
+    ports:
+      - 9200:9200
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data # in ubuntu, in centos, /var/lib/elasticsearch/data
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=true
+      - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
+      - KIBANA_PASSWORD=${ELASTIC_PASSWORD}
+    networks:
+      - elastic
+  # kibana:
+  #   image: docker.elastic.co/kibana/kibana:7.17.4
+  #   ports:
+  #     - 5601:5601
+  #   volumes:
+  #     - ./kibana.yml:/opt/kibana/config/kibana.yml
+  #   environment:
+  #     ELASTICSEARCH_URL: http://elasticsearch:9200
+  #     ELASTICSEARCH_HOSTS: '["http://elasticsearch:9200"]'
+  #   networks:
+  #     - elastic
+volumes:
+  elasticsearch_data:
+
+
+networks:
+  elastic:
+    driver: overlay
