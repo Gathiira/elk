@@ -11,12 +11,15 @@ To setup elastic search using docker compose and configure custom password
 To access the service using django
 
 ```
-ELASTIC_USERNAME = os.environ.get("ELASTIC_USERNAME", "elastic")
+ELASTIC_USERNAME = os.environ.get("ELASTIC_USERNAME")
 ELASTIC_PASSWORD = os.environ.get("ELASTIC_PASSWORD")
+ELASTIC_HOST = os.environ.get("ELASTIC_HOST")
+ES_PORT = os.environ.get("ES_PORT")
 
 ELASTICSEARCH_DSL = {
-    "default": {"hosts": f"{ELASTIC_USERNAME}:{ELASTIC_PASSWORD}@localhost:9200"},
+    "default": {"hosts": f"{ELASTIC_USERNAME}:{ELASTIC_PASSWORD}@{ELASTIC_HOST}:{ES_PORT}"},
 }
+
 ```
 
 If you want to configure KIBANA too, uncomment the configs in the docker compose
